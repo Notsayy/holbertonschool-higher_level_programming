@@ -4,7 +4,6 @@ import random
 
 number = random.randint(-10, 10)
 
-
 if number == 0:
     print(f"{number} is 0")
 else:
