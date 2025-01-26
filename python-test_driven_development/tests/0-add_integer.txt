@@ -1,42 +1,60 @@
 # Test file for add_integer function
 
->>> add_integer = __import__('0-add_integer').add_integer
+>>> add_integer = __import__('add_integer_3').add_integer
 
-# Test with two integers
+# Test basic addition
 >>> add_integer(1, 2)
 3
 
-# Test with one integer (default value for b)
+# Test with default b value
 >>> add_integer(2)
 100
 
-# Test with float and integer
+# Test with float values
 >>> add_integer(100.3, -2)
 98
 
-# Test with negative numbers
+# Test with negative integers
 >>> add_integer(-10, -5)
 -15
 
-# Test with float numbers
+# Test with float values (should be cast to int)
 >>> add_integer(2.5, 3.7)
 5
 
-# Test error cases
+# Test with non-integer second argument
 >>> try:
 ...     add_integer(4, "School")
 ... except Exception as e:
 ...     print(str(e))
 b must be an integer
 
+# Test with None as first argument
 >>> try:
 ...     add_integer(None)
 ... except Exception as e:
 ...     print(str(e))
 a must be an integer
 
+# Test with non-integer first argument
 >>> try:
 ...     add_integer("Hello", 3)
 ... except Exception as e:
 ...     print(str(e))
 a must be an integer
+
+# Test for float overflow
+>>> add_integer(float('inf'), 0)
+Traceback (most recent call last):
+    ...
+OverflowError: cannot convert float infinity to integer
+
+>>> add_integer(0, float('inf'))
+Traceback (most recent call last):
+    ...
+OverflowError: cannot convert float infinity to integer
+
+>>> add_integer(float('inf'), float('inf'))
+Traceback (most recent call last):
+    ...
+OverflowError: cannot convert float infinity to integer
