@@ -1,6 +1,6 @@
 # Test file for print_square function
 
->>> print_square = __import__('print_square_3').print_square
+>>> print_square = __import__('4-print_square').print_square
 
 # Test 1: Normal case
 >>> print_square(4)

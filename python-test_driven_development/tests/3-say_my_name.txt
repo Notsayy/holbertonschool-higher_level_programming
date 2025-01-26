@@ -1,6 +1,6 @@
 # Test file for say_my_name function
 
->>> say_my_name = __import__('say_my_name_3').say_my_name
+>>> say_my_name = __import__('3-say_my_name').say_my_name
 
 # Test 1: Normal case with first and last name
 >>> say_my_name("John", "Smith")

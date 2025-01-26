@@ -1,6 +1,6 @@
 # Test file for text_indentation function
 
->>> text_indentation = __import__('text_indentation_3').text_indentation
+>>> text_indentation = __import__('5-text_indentation').text_indentation
 
 # Test 1: Normal case with multiple sentences
 >>> text_indentation("""Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere? Non autem hoc: igitur ne illud quidem. Fortasse id optimum, sed ubi illud: Plus semper voluptatis?""")
