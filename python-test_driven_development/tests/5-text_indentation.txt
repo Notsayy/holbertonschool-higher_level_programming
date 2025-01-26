@@ -1,0 +1,43 @@
+# Test file for text_indentation function
+
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+# Test with normal text
+>>> text_indentation("""Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere? Non autem hoc: igitur ne illud quidem. Fortasse id optimum, sed ubi illud: Plus semper voluptatis?""")
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+<BLANKLINE>
+Quonam modo?
+<BLANKLINE>
+Utrum igitur tibi litteram videor an totas paginas commovere?
+<BLANKLINE>
+Non autem hoc:
+<BLANKLINE>
+igitur ne illud quidem.
+<BLANKLINE>
+Fortasse id optimum, sed ubi illud:
+<BLANKLINE>
+Plus semper voluptatis?
+<BLANKLINE>
+
+# Test with no punctuation
+>>> text_indentation("Hello world")
+Hello world
+
+# Test with only punctuation
+>>> text_indentation(".:?")
+.
+<BLANKLINE>
+:
+<BLANKLINE>
+?
+<BLANKLINE>
+
+# Test with non-string input
+>>> try:
+...     text_indentation(12345)
+... except TypeError as e:
+...     print(str(e))
+text must be a string
+
+# Test with empty string
+>>> text_indentation("")
