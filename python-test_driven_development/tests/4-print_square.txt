@@ -1,15 +1,15 @@
 # Test file for print_square function
 
->>> print_square = __import__('4-print_square').print_square
+>>> print_square = __import__('print_square_3').print_square
 
-# Test with size 4
+# Test 1: Normal case
 >>> print_square(4)
 ####
 ####
 ####
 ####
 
-# Test with size 10
+# Test 2: Larger square
 >>> print_square(10)
 ##########
 ##########
@@ -22,30 +22,37 @@
 ##########
 ##########
 
-# Test with size 0
+# Test 3: Size 0
 >>> print_square(0)
 
-# Test with size 1
+# Test 4: Size 1
 >>> print_square(1)
 #
 
-# Test with negative size
+# Test 5: Negative size
 >>> try:
 ...     print_square(-1)
 ... except ValueError as e:
 ...     print(str(e))
 size must be >= 0
 
-# Test with float
+# Test 6: Float input
 >>> try:
 ...     print_square(3.14)
 ... except TypeError as e:
 ...     print(str(e))
 size must be an integer
 
-# Test with string
+# Test 7: String input
 >>> try:
 ...     print_square("4")
 ... except TypeError as e:
 ...     print(str(e))
 size must be an integer
+
+# Test 8: Missing argument
+>>> try:
+...     print_square()
+... except TypeError as e:
+...     print(str(e))
+print_square() missing 1 required positional argument: 'size'
