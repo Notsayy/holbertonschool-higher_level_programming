@@ -5,4 +5,7 @@ Empty class named BaseGeometry
 
 
 class BaseGeometry:
+    """
+    Empty BaseGeometry class
+    """
     pass
