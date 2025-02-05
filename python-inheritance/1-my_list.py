@@ -16,6 +16,4 @@ class MyList(list):
         """
         Function that prints the list, but sorted (ascending sort)
         """
-        my_list = self.copy()
-        my_list.sort()
-        print(my_list)
+        print(sorted(self))
