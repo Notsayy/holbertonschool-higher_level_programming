@@ -41,10 +41,16 @@ Traceback (most recent call last):
 TypeError: float must be an integer
 
 # Test integer_validator with boolean
->>> bg.integer_validator("bool", True)
+>>> bg.integer_validator("boolean", True)
 Traceback (most recent call last):
     ...
-TypeError: bool must be an integer
+TypeError: boolean must be an integer
+
+# Test integer_validator with None
+>>> bg.integer_validator("none", None)
+Traceback (most recent call last):
+    ...
+TypeError: none must be an integer
 
 # Test integer_validator with list
 >>> bg.integer_validator("list", [1, 2, 3])
@@ -58,13 +64,13 @@ Traceback (most recent call last):
     ...
 TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
 
-# Test integer_validator with one argument
+# Test integer_validator with only name argument
 >>> bg.integer_validator("test")
 Traceback (most recent call last):
     ...
 TypeError: integer_validator() missing 1 required positional argument: 'value'
 
-# Test integer_validator with more than two arguments
+# Test integer_validator with extra argument
 >>> bg.integer_validator("test", 1, 2)
 Traceback (most recent call last):
     ...
