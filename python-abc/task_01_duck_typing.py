@@ -45,14 +45,14 @@ class Circle(Shape):
     A class representing a circle.
     """
 
-    def __init__(self, radius=1):
+    def __init__(self, radius):
         """
         Initialize a Circle object.
 
         Args:
-            radius (float, optional): The radius of the circle. Defaults to 1.
+            radius (float, optional): The radius of the circle.
         """
-        self.radius = radius
+        self.radius = abs(radius)
 
     def area(self):
         """
