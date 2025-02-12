@@ -37,9 +37,10 @@ class Student:
             if attr in self.__dict__:
                 result[attr] = self.__dict__[attr]
         return result
+
     def reload_from_json(self, json):
         """
-        Replaces all attributes of the Student instance with those in the json dictionary.
+        Replaces attributes with those in the json dictionary.
 
         Args:
             json (dict): A dictionary containing new attribute values.
