@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Module for converting class attributes into JSON-compatible dictionary"""
 
+
 def class_to_json(obj):
     """
     Returns the dictionary description with simple data structure
