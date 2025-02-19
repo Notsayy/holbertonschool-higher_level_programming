@@ -1,8 +1,11 @@
+#!/usr/bin/python3
+
 import requests
 import csv
 
 
 def fetch_and_print_post_titles():
+    """Fetch post titles from an API and print them."""
     api_response = requests.get("https://jsonplaceholder.typicode.com/posts")
     print(f"Status Code: {api_response.status_code}")
 
@@ -13,6 +16,7 @@ def fetch_and_print_post_titles():
 
 
 def fetch_and_save_posts_to_csv():
+    """Fetch posts from an API and save them to a CSV file."""
     api_response = requests.get('https://jsonplaceholder.typicode.com/posts')
 
     if api_response.status_code == 200:

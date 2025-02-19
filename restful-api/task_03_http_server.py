@@ -1,10 +1,15 @@
+#!/usr/bin/python3
+
 import http.server
 import json
 import socketserver
 
 
 class ServerHandler(http.server.BaseHTTPRequestHandler):
+    """Handler for the HTTP requests."""
+
     def do_GET(self):
+        """Handle GET requests."""
         if self.path == '/':
             self.send_response(200)
             self.send_header('Content-type', 'application/json')
@@ -31,8 +36,8 @@ class ServerHandler(http.server.BaseHTTPRequestHandler):
             self.send_header('Content-type', 'application/json')
             self.end_headers()
             in_info = {
-                "version": "1.0", "description":
-                "A simple API built with http.server"
+                "version": "1.0",
+                "description": "A simple API built with http.server"
             }
             self.wfile.write(json.dumps(in_info).encode('utf-8'))
         else:
@@ -43,6 +48,7 @@ class ServerHandler(http.server.BaseHTTPRequestHandler):
 
 
 def run_server(PORT=8000):
+    """Run the server on the specified port."""
     server_address = ('', PORT)
     httpd = http.server.HTTPServer(server_address, ServerHandler)
     print(f"Server running on port {PORT}")
