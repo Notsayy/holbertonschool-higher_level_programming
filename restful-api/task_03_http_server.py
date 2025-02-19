@@ -6,10 +6,17 @@ import socketserver
 
 
 class ServerHandler(http.server.BaseHTTPRequestHandler):
-    """Handler for the HTTP requests."""
+    """
+    Class to manage HTTP requests.
+
+    It defines methods to manage GET requests.
+    """
 
     def do_GET(self):
-        """Handle GET requests."""
+        """
+        Treat GET requests.
+        Send the correct answer to the correct request.
+        """
         if self.path == '/':
             self.send_response(200)
             self.send_header('Content-type', 'application/json')
@@ -48,7 +55,12 @@ class ServerHandler(http.server.BaseHTTPRequestHandler):
 
 
 def run_server(PORT=8000):
-    """Run the server on the specified port."""
+    """
+    Run the HTTP server.
+
+    Args:
+        PORT: default port: 8000
+    """
     server_address = ('', PORT)
     httpd = http.server.HTTPServer(server_address, ServerHandler)
     print(f"Server running on port {PORT}")
