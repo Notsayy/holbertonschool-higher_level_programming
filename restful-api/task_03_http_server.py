@@ -1,11 +1,8 @@
-#!/usr/bin/python3
-
 import http.server
 import json
-import socketserver
 
 
-class ServerHandler(http.server.BaseHTTPRequestHandler):
+class SimpleAPI(http.server.BaseHTTPRequestHandler):
     """
     Class to manage HTTP requests.
 
@@ -62,7 +59,7 @@ def run_server(PORT=8000):
         PORT: default port: 8000
     """
     server_address = ('', PORT)
-    httpd = http.server.HTTPServer(server_address, ServerHandler)
+    httpd = http.server.HTTPServer(server_address, SimpleAPI)
     print(f"Server running on port {PORT}")
     httpd.serve_forever()
 
