@@ -3,8 +3,10 @@
 import requests
 import csv
 
-
-def fetch_and_print_post_titles():
+"""
+Function to interact with the request library
+"""
+def fetch_and_print_post():
     """Fetch post titles from an API and print them."""
     api_response = requests.get("https://jsonplaceholder.typicode.com/posts")
     print(f"Status Code: {api_response.status_code}")
@@ -15,7 +17,7 @@ def fetch_and_print_post_titles():
             print(one_post["title"])
 
 
-def fetch_and_save_posts_to_csv():
+def fetch_and_save_posts():
     """Fetch posts from an API and save them to a CSV file."""
     api_response = requests.get('https://jsonplaceholder.typicode.com/posts')
 
@@ -37,8 +39,3 @@ def fetch_and_save_posts_to_csv():
             csv_writer.writeheader()
             for one_post in structured_posts:
                 csv_writer.writerow(one_post)
-
-
-if __name__ == "__main__":
-    fetch_and_print_post_titles()
-    fetch_and_save_posts_to_csv()
