@@ -1,11 +1,11 @@
-#!/usr/bin/python3
-
 import requests
 import csv
 
 """
 Function to interact with the request library
 """
+
+
 def fetch_and_print_post():
     """Fetch post titles from an API and print them."""
     api_response = requests.get("https://jsonplaceholder.typicode.com/posts")
@@ -23,19 +23,12 @@ def fetch_and_save_posts():
 
     if api_response.status_code == 200:
         list_of_posts = api_response.json()
-        structured_posts = []
+        structured_posts = [{'id': post['id'], 'title': post['title'],
+                             'body': post['body']} for post in list_of_posts]
 
-        for post in list_of_posts:
-            structured_post = {
-                'post_id': post['id'],
-                'post_title': post['title'],
-                'post_content': post['body']
-            }
-            structured_posts.append(structured_post)
-
-        with open('posts.csv', 'w', newline='') as csvfile:
-            column_names = ['post_id', 'post_title', 'post_content']
-            csv_writer = csv.DictWriter(csvfile, fieldnames=column_names)
+        with open('posts.csv', 'w', newline='', encoding='utf-8') as csvfile:
+            csv_writer = csv.DictWriter(csvfile, fieldnames=['id',
+                                                             'title', 'body'])
             csv_writer.writeheader()
             for one_post in structured_posts:
                 csv_writer.writerow(one_post)
