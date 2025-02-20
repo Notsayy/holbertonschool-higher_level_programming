@@ -14,13 +14,13 @@ class SimpleAPI(http.server.BaseHTTPRequestHandler):
         Treat GET requests.
         Send the correct answer to the correct request.
         """
-        if self.path == '/':
+        if self.path == "/":
             self.send_response(200)
             self.send_header('Content-type', 'application/json')
             self.end_headers()
             self.wfile.write(b"Hello, this is a simple API!")
 
-        elif self.path == '/data':
+        elif self.path == "/data":
             self.send_response(200)
             self.send_header('Content-type', 'application/json')
             self.end_headers()
@@ -29,13 +29,13 @@ class SimpleAPI(http.server.BaseHTTPRequestHandler):
             }
             self.wfile.write(json.dumps(in_data).encode('utf-8'))
 
-        elif self.path == '/status':
+        elif self.path == "/status":
             self.send_response(200)
             self.send_header('Content-type', 'application/json')
             self.end_headers()
             self.wfile.write(json.dumps("OK").encode('utf-8'))
 
-        elif self.path == '/info':
+        elif self.path == "/info":
             self.send_response(200)
             self.send_header('Content-type', 'application/json')
             self.end_headers()
