@@ -8,7 +8,7 @@ Function to interact with the request library
 
 def fetch_and_print_post():
     """Fetch post titles from an API and print them."""
-    api_response = requests.get("https://jsonplaceholder.typicode.com/posts")
+    api_response = requests.get('https://jsonplaceholder.typicode.com/posts')
     print(f"Status Code: {api_response.status_code}")
 
     if api_response.status_code == 200:
