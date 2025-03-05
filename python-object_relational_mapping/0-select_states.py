@@ -24,38 +24,33 @@ if __name__ == "__main__":
     password = sys.argv[2]
     database = sys.argv[3]
 
-    try:
-        # Establish a connection to the MySQL database
-        db = MySQLdb.connect(
-            host="localhost",
-            port=3306,
-            user=username,
-            passwd=password,
-            db=database
-        )
+    # Establish a connection to the MySQL database
+    db = MySQLdb.connect(
+        host="localhost",
+        port=3306,
+        user=username,
+        passwd=password,
+        db=database
+    )
 
-        # Create a cursor object to execute SQL queries
-        cursor = db.cursor()
+    # Create a cursor object to execute SQL queries
+    cursor = db.cursor()
 
-        # Define the SQL query
-        query = "SELECT * FROM states ORDER BY id ASC;"
+    # Define the SQL query
+    query = "SELECT * FROM states ORDER BY id ASC;"
 
-        # Execute the SQL query
-        cursor.execute(query)
+    # Execute the SQL query
+    cursor.execute(query)
 
-        # Fetch all results from the executed query
-        results = cursor.fetchall()
+    # Fetch all results from the executed query
+    results = cursor.fetchall()
 
-        # Loop through the results and print each row
-        for row in results:
-            print(row)
+    # Loop through the results and print each row
+    for row in results:
+        print(row)
 
-        # Close the cursor
-        cursor.close()
+    # Close the cursor
+    cursor.close()
 
-        # Close the database connection
-        db.close()
-
-    except MySQLdb.Error as e:
-        # Print an error message if an exception occurs
-        print(f"Error MySQL: {e}")
+    # Close the database connection
+    db.close()
