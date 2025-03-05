@@ -13,6 +13,11 @@ import sys
 
 # Ensures the script runs only if executed directly
 if __name__ == "__main__":
+    # Check if all required arguments are provided
+    if len(sys.argv) != 4:
+        print("Usage: {} <mysql username> <mysql password> <database name>"
+              .format(sys.argv[0]))
+        sys.exit(1)
 
     # Retrieve command-line arguments (MySQL username, password, database name)
     username = sys.argv[1]
