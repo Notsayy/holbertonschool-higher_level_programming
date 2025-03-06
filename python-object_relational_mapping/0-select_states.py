@@ -36,11 +36,8 @@ if __name__ == "__main__":
     # Create a cursor object to execute SQL queries
     cursor = db.cursor()
 
-    # Define the SQL query
-    query = "SELECT * FROM states ORDER BY id ASC;"
-
     # Execute the SQL query
-    cursor.execute(query)
+    cursor.execute("SELECT * FROM states ORDER BY id ASC")
 
     # Fetch all results from the executed query
     results = cursor.fetchall()
