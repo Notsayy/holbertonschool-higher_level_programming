@@ -3,9 +3,6 @@
 This script connects to a MySQL database and retrieves all states
 from the `states` table where the name matches the given argument,
 ordered by `id` in ascending order.
-
-Usage:
-    ./script_name.py <mysql_username> <mysql_password> <database_name> <state_name>
 """
 
 import MySQLdb
@@ -15,11 +12,11 @@ import sys
 if __name__ == "__main__":
     # Check if the correct number of arguments is provided
     if len(sys.argv) != 5:
-        print("Usage: {} <mysql username> <mysql password> <database name> <state name>"
-              .format(sys.argv[0]))
+        print("Usage: {} <mysql username> <mysql password> <database name> "
+              "<state name>".format(sys.argv[0]))
         sys.exit(1)
 
-    # Retrieve command-line arguments (MySQL username, password, database name, state name)
+    # Retrieve command-line arguments.
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
@@ -37,7 +34,7 @@ if __name__ == "__main__":
     # Create a cursor object to execute SQL queries
     cursor = db.cursor()
 
-    # Execute the SQL query to fetch states where the name matches the given state_name
+    # Execute the SQL query
     cursor.execute(
         "SELECT * FROM states WHERE name = %s ORDER BY id ASC", (state_name,)
     )
