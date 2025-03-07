@@ -29,6 +29,7 @@ if __name__ == "__main__":
         user=username,
         passwd=password,
         db=database
+        charset="utf8"
     )
 
     # Create a cursor object to execute SQL queries
