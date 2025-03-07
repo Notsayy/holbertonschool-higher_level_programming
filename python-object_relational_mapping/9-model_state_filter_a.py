@@ -35,13 +35,8 @@ if __name__ == "__main__":
     states = session.query(State).filter(State.name.like('%a%')).order_by(
         State.id).all()
 
-    # If no state was found, print 'Nothing'
-    if not states:
-        print("Nothing")
-    else:
-        # Loop through the states and print their 'id' and 'name'
-        for state in states:
-            print(f"{state.id}: {state.name}")
+    for state in states:
+        print("{}: {}".format(state.id, state.name))
 
     # Close the session to release resources
     session.close()
